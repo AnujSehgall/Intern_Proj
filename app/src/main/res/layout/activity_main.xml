@@ -61,10 +61,20 @@
 
     </android.support.v7.widget.AppCompatSpinner>
 
+    <Button
+        android:id="@+id/nxt"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:layout_alignEnd="@+id/age"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:text="Next" />
+
     <ImageView
         android:layout_width="100dp"
         android:layout_height="120dp"
         android:layout_alignEnd="@+id/gender"
+        android:id="@+id/imageView"
         android:layout_alignParentBottom="true"
         android:src="@drawable/logo" />
 
