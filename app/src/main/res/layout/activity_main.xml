@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.anuj.inten_proj.MainActivity">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp">
+
+        <EditText
+            android:id="@+id/namelay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/name"
+            android:layout_alignTop="@+id/name"
+            android:layout_marginTop="30dp"
+            android:hint="@string/spinner_title"
+            android:inputType="textEmailAddress" />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/hint1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/age"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="49dp"
+        android:text="Please select your age group"
+        android:textSize="12dp"
+        android:textStyle="italic" />
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/age"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="21dp"
+        android:gravity="center"
+        android:prompt="@string/spinner_title">
+
+    </android.support.v7.widget.AppCompatSpinner>
+
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/gender"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/age"
+        android:layout_marginEnd="15dp"
+        android:gravity="center"
+        android:prompt="@string/spinner_title">
+
+    </android.support.v7.widget.AppCompatSpinner>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:layout_alignEnd="@+id/gender"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/logo" />
+
+
+</RelativeLayout>
