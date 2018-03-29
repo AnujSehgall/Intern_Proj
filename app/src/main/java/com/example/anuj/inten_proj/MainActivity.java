@@ -1,12 +1,15 @@
 package com.example.anuj.inten_proj;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -15,6 +18,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    String item,item2,tr,name;
+    EditText edname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +28,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Spinner spin_age = (Spinner) findViewById(R.id.age);
         Spinner spin_gen = (Spinner) findViewById(R.id.gender);
         Button nxt =(Button) findViewById(R.id.nxt);
-        // Spinner click listener
+        edname= findViewById(R.id.namelay);
+
         spin_age.setOnItemSelectedListener(this);
         spin_gen.setOnItemSelectedListener(this);
 
@@ -53,8 +59,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         nxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,Interest_Act.class);
-                startActivity(i);
+                name = edname.getText().toString();
+                if (name.length()==0){
+                    Toast.makeText(getApplicationContext(),"Please enter your name",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    String nname = name.substring(0, 2);
+                    Intent i = new Intent(MainActivity.this,Interest_Act.class);
+                    i.putExtra("name", nname);
+                    i.putExtra("ab",tr);
+                    startActivity(i);
+                }
+
             }
         });
 
@@ -65,17 +81,27 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         switch (parent.getId()) {
             case R.id.age:
-                String item = parent.getItemAtPosition(position).toString();
-                Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+                item = parent.getItemAtPosition(position).toString();
+               // Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
                 break;
             case R.id.gender:
-                String item2 = parent.getItemAtPosition(position).toString();
-                Toast.makeText(parent.getContext(), "Selected: " + item2, Toast.LENGTH_LONG).show();
+                item2 = parent.getItemAtPosition(position).toString();
+             //   Toast.makeText(parent.getContext(), "Selected: " + item2, Toast.LENGTH_LONG).show();
                 break;
             default:
                 break;
         }
+        if (item == "Less than 10 years" || item == "10 – 15 years" || item2 =="FEMALE"){
 
+            tr="fem";
+        }
+        else if ((item == "16 – 40 years" || item == "Above 40 years") && item2 =="MALE"){
+
+            tr="mal";
+        }
+
+        else
+            tr="fem";
     }
 
     @Override

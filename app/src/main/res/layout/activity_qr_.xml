@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:background="@color/colorWhite"
+tools:context="com.example.anuj.inten_proj.Interest_Act">
+
+<android.support.v7.widget.Toolbar
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:title="Redox"
+    app:titleMarginStart="10dp"
+    android:id="@+id/toolbar">
+</android.support.v7.widget.Toolbar>
+
+    <android.support.v7.widget.CardView
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardElevation="4dp"
+        android:layout_margin="10dp"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="4dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardBackgroundColor="@color/colorWhite"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/hint1"
+            android:background="@drawable/edittext_stroke"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_margin="15dp">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/imageView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="25dp"
+                android:text="SCAN ME !"
+                android:textColor="@color/QRCodeBlackColor"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:textStyle="italic" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="139dp" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
